@@ -28,6 +28,12 @@ public class Cat
         this();
         this.weight = weight;
     }
+// конструктор копирования
+    public Cat(Cat cat){
+        this.originWeight = cat.originWeight;
+        this.weight = cat.weight;
+        this.color = cat.color;
+    }
 
     public boolean isAlive(){
         //if(weight < minWeight || weight > maxWeight) return false;
@@ -91,6 +97,9 @@ public class Cat
     {
         return weight;
     }
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
 
     public static int getCount(){
         return count;
@@ -111,5 +120,11 @@ public class Cat
         else {
             return "Playing";
         }
+    }
+
+    public void copyCat(Cat cat){
+        this.originWeight = cat.originWeight;
+        this.weight = cat.weight;
+        this.color = cat.color;
     }
 }

@@ -80,11 +80,20 @@ public class Loader
 //        System.out.println("Cat12: \n Status: " + cat12.getStatus() + "\n Weight: " + cat12.getWeight());
 
         //TASK 6
-        Cat cat13 = new Cat();
-        cat13.setColor(Color.BLACK);
-        System.out.println(cat13.getColor().toString());
+//        Cat cat13 = new Cat();
+//        cat13.setColor(Color.BLACK);
+//        System.out.println(cat13.getColor().toString());
 
-
+        //TASK7
+        Cat cat14 = new Cat();
+        cat14.setColor(Color.RED);
+        cat14.setWeight(3400.00);
+        System.out.println("Cat14 \n Weight: " + cat14.getWeight() + "\n Color: " + cat14.getColor());
+        Cat cat15 = new Cat(cat14);
+        System.out.println("Cat15 \n Weight: " + cat15.getWeight() + "\n Color: " + cat15.getColor());
+        Cat cat16 = new Cat();
+        cat16.copyCat(cat15);
+        System.out.println("Cat16 \n Weight: " + cat16.getWeight() + "\n Color: " + cat16.getColor());
 
     }
 
