@@ -23,6 +23,11 @@ public class Cat
 
     }
 
+    public Cat(double weight){
+        this();
+        this.weight = weight;
+    }
+
     public boolean isAlive(){
         //if(weight < minWeight || weight > maxWeight) return false;
         if(this.getStatus() == "Dead" || this.getStatus() == "Exploded") {

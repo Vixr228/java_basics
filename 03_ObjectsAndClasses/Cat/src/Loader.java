@@ -53,24 +53,38 @@ public class Loader
 //        System.out.println("Cat ate: " + cat6.getFoodAmount() + "g");
 
         //TASK 3
+//
+//        Cat cat7 = new Cat();
+//        Cat cat8 = new Cat();
+//        Cat cat9 = new Cat();
+//        System.out.println(Cat.getCount());
+//
+//        while(cat7.isAlive()){
+//            cat7.feed(1000.);
+//        }
+//        while(cat8.isAlive()){
+//            cat8.pee();
+//        }
+//        //System.out.println(cat7.getStatus());
+//        System.out.println(Cat.getCount());
+//        cat7.feed(100.);
+//        cat8.drink(100.);
 
-        Cat cat7 = new Cat();
-        Cat cat8 = new Cat();
-        Cat cat9 = new Cat();
-        System.out.println(Cat.getCount());
+    //TASK 5
+        Cat cat10 = getKitten();
+        Cat cat11 = getKitten();
+        Cat cat12 = getKitten();
 
-        while(cat7.isAlive()){
-            cat7.feed(1000.);
-        }
-        while(cat8.isAlive()){
-            cat8.pee();
-        }
-        //System.out.println(cat7.getStatus());
-        System.out.println(Cat.getCount());
-        cat7.feed(100.);
-        cat8.drink(100.);
+        System.out.println("Cat10: \n Status: " + cat10.getStatus() + "\n Weight: " + cat10.getWeight());
+        System.out.println("Cat11: \n Status: " + cat11.getStatus() + "\n Weight: " + cat11.getWeight());
+        System.out.println("Cat12: \n Status: " + cat12.getStatus() + "\n Weight: " + cat12.getWeight());
 
 
 
+
+    }
+
+    private static Cat getKitten(){
+        return new Cat(1100.00);
     }
 }
