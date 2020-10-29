@@ -42,15 +42,34 @@ public class Loader
 
         //TASK 2
 
-        Cat cat6 = new Cat();
-        System.out.println("Cat6: \n Weight: " + cat6.getWeight());
-        cat6.feed(100.);
-        cat6.feed(150.);
-        System.out.println("Cat6: \n Weight: " + cat6.getWeight());
-        cat6.pee();
-        cat6.pee();
-        System.out.println("Cat6: \n Weight: " + cat6.getWeight());
-        System.out.println("Cat ate: " + cat6.getFoodAmount() + "g");
+//        Cat cat6 = new Cat();
+//        System.out.println("Cat6: \n Weight: " + cat6.getWeight());
+//        cat6.feed(100.);
+//        cat6.feed(150.);
+//        System.out.println("Cat6: \n Weight: " + cat6.getWeight());
+//        cat6.pee();
+//        cat6.pee();
+//        System.out.println("Cat6: \n Weight: " + cat6.getWeight());
+//        System.out.println("Cat ate: " + cat6.getFoodAmount() + "g");
+
+        //TASK 3
+
+        Cat cat7 = new Cat();
+        Cat cat8 = new Cat();
+        Cat cat9 = new Cat();
+        System.out.println(Cat.getCount());
+
+        while(cat7.isAlive()){
+            cat7.feed(1000.);
+        }
+        while(cat8.isAlive()){
+            cat8.pee();
+        }
+        //System.out.println(cat7.getStatus());
+        System.out.println(Cat.getCount());
+        cat7.feed(100.);
+        cat8.drink(100.);
+
 
 
     }
