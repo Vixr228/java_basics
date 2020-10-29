@@ -9,6 +9,7 @@ public class Cat
 
     private double originWeight;
     private double weight;
+    private Color color;
 
 
 
@@ -47,6 +48,13 @@ public class Cat
     }
 
     /** Создайте в классе Cat метод, который возвращает сумму съеденной еды текущей кошки. */
+    public Color getColor(){
+        return color;
+    }
+
+    public void setColor(Color color){
+        this.color = color;
+    }
 
     public double getFoodAmount(){
         return foodAmount;

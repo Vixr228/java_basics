@@ -15,4 +15,36 @@ public class Car
             special + "Автомобиль с номером " + number +
             ":\n\tВысота: " + height + " мм\n\tМасса: " + weight + " кг";
     }
+
+    public double getWeight() {
+        return weight;
+    }
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+    public void setHeight(int height){
+        this.height = height;
+    }
+    public String getNumber() {
+        return number;
+    }
+    public void setNumber(String number){
+        this.number = number;
+    }
+    public boolean getHasVehicle() {
+        return isSpecial;
+    }
+    public void setHasVehicle(boolean hasVehicle){
+        this.hasVehicle = hasVehicle;
+    }
+    public boolean getIsSpecial() {
+        return isSpecial;
+    }
+    public void setIsSpecial(boolean isSpecial){
+        this.isSpecial = isSpecial;
+    }
 }

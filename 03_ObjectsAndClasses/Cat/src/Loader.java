@@ -71,14 +71,18 @@ public class Loader
 //        cat8.drink(100.);
 
     //TASK 5
-        Cat cat10 = getKitten();
-        Cat cat11 = getKitten();
-        Cat cat12 = getKitten();
+//        Cat cat10 = getKitten();
+//        Cat cat11 = getKitten();
+//        Cat cat12 = getKitten();
+//
+//        System.out.println("Cat10: \n Status: " + cat10.getStatus() + "\n Weight: " + cat10.getWeight());
+//        System.out.println("Cat11: \n Status: " + cat11.getStatus() + "\n Weight: " + cat11.getWeight());
+//        System.out.println("Cat12: \n Status: " + cat12.getStatus() + "\n Weight: " + cat12.getWeight());
 
-        System.out.println("Cat10: \n Status: " + cat10.getStatus() + "\n Weight: " + cat10.getWeight());
-        System.out.println("Cat11: \n Status: " + cat11.getStatus() + "\n Weight: " + cat11.getWeight());
-        System.out.println("Cat12: \n Status: " + cat12.getStatus() + "\n Weight: " + cat12.getWeight());
-
+        //TASK 6
+        Cat cat13 = new Cat();
+        cat13.setColor(Color.BLACK);
+        System.out.println(cat13.getColor().toString());
 
 
 
