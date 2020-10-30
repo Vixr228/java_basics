@@ -27,7 +27,7 @@ public class Cat
     public Cat(double weight){
         this();
         this.weight = weight;
-        if(weight < MIN_WEIGHT) {
+        if(weight < MIN_WEIGHT || weight > MAX_WEIGHT) {
             count--;
             System.out.println("This cat is dead...");
         }
