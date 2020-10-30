@@ -27,13 +27,17 @@ public class Cat
     public Cat(double weight){
         this();
         this.weight = weight;
+        if(weight < MIN_WEIGHT) {
+            count--;
+            System.out.println("This cat is dead...");
+        }
     }
 // конструктор копирования
-    public Cat(Cat cat){
-        this.originWeight = cat.originWeight;
-        this.weight = cat.weight;
-        this.color = cat.color;
-    }
+//    public Cat(Cat cat){
+//        this.originWeight = cat.originWeight;
+//        this.weight = cat.weight;
+//        this.color = cat.color;
+//    }
 
     public boolean isAlive(){
         //if(weight < minWeight || weight > maxWeight) return false;
@@ -122,7 +126,7 @@ public class Cat
         }
     }
 
-    public void copyCat(Cat cat){
+    public void makeTwin(Cat cat){
         this.originWeight = cat.originWeight;
         this.weight = cat.weight;
         this.color = cat.color;
