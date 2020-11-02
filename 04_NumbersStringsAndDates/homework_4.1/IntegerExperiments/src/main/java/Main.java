@@ -1,13 +1,13 @@
 public class Main {
 
-  public static void main(String[] args) {
-    Container container = new Container();
-    container.count += 7843;
+    public static void main(String[] args) {
+        Container container = new Container();
+        container.count += 7843;
 
-    int sum = sumDigits(1236);
+        int sum = sumDigits(1236);
 
-    System.out.println(sum);
-  }
+        System.out.println(sum);
+    }
 
   /* Реализуйте метод sumDigits который возвращает сумму цифр числа, пример:
   передано 12345, метод должен вернуть 15
@@ -19,19 +19,18 @@ public class Main {
   В противном случае тестовый метод не сможет проверить ваш код
    */
 
-  public static int sumDigits(Integer number) {
-    //@TODO: write code here and delete TODO line
-   // if(number.equals(null)) return 0;
-    if(number == null) return -1;
-    String num = number.toString();
-    int length  = num.length();
-    int result = 0;
-    while(length != 0){
-       //result = result + num.charAt(length - 1) - 48;
-      //result += Integer.parseInt(Character.toString(num.charAt(length - 1)));
-      result += Character.digit(num.charAt(length - 1), 10);
-      length--;
+    public static int sumDigits(Integer number) {
+        // if(number.equals(null)) return 0;
+        if (number == null) return -1;
+        String num = number.toString();
+        int length = num.length();
+        int result = 0;
+        while (length != 0) {
+            //result = result + num.charAt(length - 1) - 48;
+            //result += Integer.parseInt(Character.toString(num.charAt(length - 1)));
+            result += Character.digit(num.charAt(length - 1), 10);
+            length--;
+        }
+        return result;
     }
-    return result;
-  }
 }
