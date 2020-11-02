@@ -1,7 +1,7 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * Test for module 4 homework 3 GeometryCalculator method getTriangleSquare
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test;
 public class TestGetTriangleSquare {
 
     private static final double DELTA = 0.01;
-    
+
     @Test
     @DisplayName("Передан неверно построенный треугольник. Сторона 'a' равна 1, сторона 'b' равна 20, сторона 'c' равна 40")
     void testGetTriangleSquareWithWrongPositiveSides() {
@@ -67,5 +67,5 @@ public class TestGetTriangleSquare {
         double expected = 1.5599999999999987;
         assertEquals(expected, GeometryCalculator.getTriangleSquare(1.5, 2.6, 3.7), DELTA);
     }
-    
+
 }

@@ -1,8 +1,5 @@
-
-public class Loader
-{
-    public static void main(String[] args)
-    {
+public class Loader {
+    public static void main(String[] args) {
 
         // TASK 1
         System.out.println("Task 1");
@@ -29,18 +26,18 @@ public class Loader
 
 
         System.out.println("Let's kill cat1 :(");
-        while(cat1.getStatus() != "Exploded"){
+        while (cat1.getStatus() != "Exploded") {
             cat1.feed(1000.);
         }
         System.out.println("Cat1: \n Status: " + cat1.getStatus() + "\n Weight: " + cat1.getWeight());
 
         System.out.println("Let's make a deadly meow ");
-        while(cat2.getStatus() != "Dead"){
+        while (cat2.getStatus() != "Dead") {
             cat2.meow();
         }
         System.out.println("Cat2: \n Status: " + cat2.getStatus() + "\n Weight: " + cat2.getWeight());
 
-       // TASK 2
+        // TASK 2
         System.out.println("Task 2");
         Cat cat6 = new Cat();
         System.out.println("Cat6: \n Weight: " + cat6.getWeight());
@@ -59,10 +56,10 @@ public class Loader
         Cat cat9 = new Cat();
         System.out.println(Cat.getCount());
 
-        while(cat7.isAlive()){
+        while (cat7.isAlive()) {
             cat7.feed(1000.);
         }
-        while(cat8.isAlive()){
+        while (cat8.isAlive()) {
             cat8.pee();
         }
         //System.out.println(cat7.getStatus());
@@ -100,7 +97,7 @@ public class Loader
 
     }
 
-    private static Cat getKitten(){
+    private static Cat getKitten() {
         return new Cat(1100.00);
     }
 }

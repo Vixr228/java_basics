@@ -10,14 +10,14 @@ public class GeometryCalculator {
     }
 
     public static boolean isTrianglePossible(double a, double b, double c) {
-        if(a + b > c && a + c > b && b + c > a) return true;
+        if (a + b > c && a + c > b && b + c > a) return true;
         else return false;
     }
 
     // перед расчетом площади рекомендуется проверить возможен ли такой треугольник
     // методом isTrianglePossible, если невозможен вернуть -1.0
     public static double getTriangleSquare(double a, double b, double c) {
-        if(!isTrianglePossible(a, b, c)) return -1;
+        if (!isTrianglePossible(a, b, c)) return -1;
         double p = (a + b + c) / 2;
         return Math.sqrt(p * (p - a) * (p - b) * (p - c));
 
