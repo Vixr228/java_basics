@@ -1,15 +1,16 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.time.Duration;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTimeoutPreemptively;
 
 /**
  * Test for module 4 homework 3 task 2 trucks, containers and boxes.
@@ -62,11 +63,11 @@ public class TestTrucksContainersAndBoxes {
         launchApplication(
                 collectTestInput("1"),
                 collectTestOutput("Грузовик: 1",
-                                "\tКонтейнер: 1",
-                                "\t\tЯщик: 1",
-                                "Необходимо:",
-                                "грузовиков - 1 шт.",
-                                "контейнеров - 1 шт."));
+                        "\tКонтейнер: 1",
+                        "\t\tЯщик: 1",
+                        "Необходимо:",
+                        "грузовиков - 1 шт.",
+                        "контейнеров - 1 шт."));
     }
 
     @Test

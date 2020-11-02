@@ -1,24 +1,1 @@
-import java.util.Scanner;
-
-public class Main {
-
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String boxes = scanner.nextLine();
-
-        // TODO: вывести в консоль коробки разложенные по грузовикам и контейнерам
-        // пример вывода при вводе 2
-        // для отступа используйте табуляцию - \t
-
-        /*
-        Грузовик: 1
-            Контейнер: 1
-                Ящик: 1
-                Ящик: 2
-        Необходимо:
-        грузовиков - 1 шт.
-        контейнеров - 1 шт.
-        */
-    }
-
-}
+import java.util.Scanner;public class Main {    public static void main(String[] args) {        //System.out.println("Введите количество ящиков: ");        Scanner scanner = new Scanner(System.in);        String boxes = scanner.nextLine();        // TODO: вывести в консоль коробки разложенные по грузовикам и контейнерам        // пример вывода при вводе 2        // для отступа используйте табуляцию - \t        /*        Грузовик: 1            Контейнер: 1                Ящик: 1                Ящик: 2        Необходимо:        грузовиков - 1 шт.        контейнеров - 1 шт.        */        int boxCount = Integer.parseInt(boxes);        int containerCount = 0;        int truckCount = 0;        int counter = 0;        while(counter < boxCount){            if(counter % 324 == 0) {                System.out.println("Грузовик: " + (truckCount + 1));                truckCount++;            }            if(counter % 27 == 0){                System.out.println("\tКонтейнер: " + (containerCount + 1));                containerCount++;            }            System.out.println("\t\tЯщик: " + (counter + 1));            counter++;        }        System.out.println("Необходимо:"                + System.lineSeparator() + "грузовиков - " +  truckCount + " шт."                + System.lineSeparator() + "контейнеров - " +  containerCount + " шт.");    }}
