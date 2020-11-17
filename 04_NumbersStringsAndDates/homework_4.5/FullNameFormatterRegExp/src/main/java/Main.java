@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
 
@@ -10,8 +12,17 @@ public class Main {
             if (input.equals("0")) {
                 break;
             }
-            //TODO:напишите ваш код тут, результат вывести в консоль.
             //При невалидном ФИО вывести в консоль: Введенная строка не является ФИО
+            if(!input.matches("[а-яёА-ЯЁ\\-\\s]+")) {
+                System.out.println("Введенная строка не является ФИО");
+                continue;
+            }
+            String fio[] = input.split("\\s+", 3);
+            System.out.println("Фамилия: " + fio[0]);
+            System.out.println("Имя: " + fio[1]);
+            System.out.println("Отчество: " + fio[2]);
+
+        //TODO Одно слово когда, то не работает
         }
     }
 
