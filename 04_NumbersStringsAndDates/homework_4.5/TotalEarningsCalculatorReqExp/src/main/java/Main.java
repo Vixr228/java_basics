@@ -7,7 +7,6 @@ public class Main {
     }
 
     public static int calculateSalarySum(String text) {
-        //TODO: реализуйте метод
         text = text.replaceAll("[^\\d\\s]", "");
         String res[] = text.split("\\s+");
 //        for (int i = 0; i < res.length; i++) {
