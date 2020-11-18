@@ -2,6 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+        //done
         String text = "Номер <кредитной> карты <4008 1234 5678> 8912";
         String placeholder = "***";
         System.out.println(searchAndReplaceDiamonds(text, placeholder));
