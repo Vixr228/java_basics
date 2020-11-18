@@ -25,7 +25,7 @@ public class Main {
             System.out.println("Фамилия: " + fio[0]);
             System.out.println("Имя: " + fio[1]);
             System.out.println("Отчество: " + fio[2]);
-
+            //done
 
         }
     }
