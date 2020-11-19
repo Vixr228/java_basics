@@ -2,6 +2,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Main {
 
@@ -15,24 +16,25 @@ public class Main {
 
     }
 
+
     public static String collectBirthdays(int year, int month, int day) {
 
-        //TODO реализуйте метод для построения строки в следующем виде
-        //0 - 31.12.1990 - Mon
-        //1 - 31.12.1991 - Tue
         DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy - EEE");
-        Calendar calendarStart = Calendar.getInstance();
-        calendarStart.set(year, month - 1, day);
-        Calendar calendarCurr = Calendar.getInstance();
-        String result = "";
+
+        GregorianCalendar calendarStart = new GregorianCalendar(year, month - 1, day);
+
+        GregorianCalendar calendarCurr = new GregorianCalendar();
+
+        StringBuilder result = new StringBuilder();
+
         int i = 0;
-       while(calendarStart.getTimeInMillis() <= calendarCurr.getTimeInMillis()) {
-            result += i + " - " + dateFormat.format(calendarStart.getTime()).toString() + "\n";
+        while(calendarStart.before(calendarCurr)) {
+            result.append(i + " - " + dateFormat.format(calendarStart.getTime()).toString() + "\n");
             calendarStart.add(Calendar.YEAR, 1);
             i++;
         }
 
 
-        return result;
+        return result.toString();
     }
 }
