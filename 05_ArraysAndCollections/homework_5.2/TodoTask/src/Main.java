@@ -1,82 +1,82 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 public class Main {
+
+    public static ArrayList<String> todoList = new ArrayList<>(){{
+        add("Дело номер один");
+        add("Дело номер два");
+        add("Дело номер три");
+    }};
+
     public static void main(String[] args) {
-        ArrayList<String> todoList = new ArrayList<>(){{
-            add("Дело номер один");
-            add("Дело номер два");
-            add("Дело номер три");
-        }};
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
+            System.out.println("Введите команду: ");
             String input = scanner.nextLine();
-            if (input.matches("EXIT")) {
-                break;
-            }
-            if (input.matches("LIST")) {
-                list(todoList);
-            }
-            if (input.matches("ADD\\s.+")) {
-                if(input.matches("ADD\\s\\d+.+")){
-                    todoList = addPos(input, todoList);
-                }
-                else todoList = add(input, todoList);
-            }
-            if(input.matches("DELETE\\s\\d+")){
-                todoList = delete(input, todoList);
-            }
-            if(input.matches("EDIT\\s\\d+.+")){
-                todoList = edit(input, todoList);
+            String[] splitCommand = input.split("\\s", 3);
+
+            if(splitCommand.length > 1 && splitCommand[1].matches("\\d+")) splitCommand[0] += "!";
+            /*
+                splitCommand[0] - Команда
+                splitCommand[1] - Индекс (если есть), если нет, то текст
+                splitCommand[2] - Текст
+             */
+            switch (splitCommand[0]){
+                case "ADD":
+                    simpleAddToList(input.substring(input.indexOf(' ')));
+                    break;
+                case "ADD!":
+                    atIndexAddToList(splitCommand[2], splitCommand[1]);
+                    break;
+                case "EDIT!":
+                    editList(splitCommand[2], splitCommand[1]);
+                    break;
+                case "LIST":
+                    printList();
+                    break;
+                case "DELETE!":
+                    removeFromList(splitCommand[1]);
+                default: continue;
             }
 
         }
-
-
-    }
-    public static ArrayList<String> edit (String input, ArrayList<String> arrayList){
-        String noEdit = input.substring(input.indexOf(' ')).trim();
-        String intPos = noEdit.substring(0, noEdit.indexOf(' '));
-        String item = noEdit.substring(noEdit.indexOf(' ')).trim();
-        int position = Integer.parseInt(intPos.trim());
-        if(position <= arrayList.size() - 1) {
-            arrayList.remove(position);
-            arrayList.add(position, item);
-        }
-        else System.out.println("Нет такого элемента");
-        return arrayList;
     }
 
-    public static ArrayList<String> delete (String input, ArrayList<String> arrayList){
-        String positionStr = input.substring(input.indexOf(' '));
-        int position = Integer.parseInt(positionStr.trim());
-        if(position <= arrayList.size() - 1)
-            arrayList.remove(position);
-        else System.out.println("Нет такого элемента");
-        return arrayList;
+    public static void simpleAddToList(String input){
+        todoList.add(input.trim());
     }
 
-    public static ArrayList<String> add (String input, ArrayList<String> arrayList){
-        String item = input.substring(input.indexOf(' '));
-        arrayList.add(item.trim());
-        return arrayList;
-    }
-    public static ArrayList<String> addPos(String input, ArrayList<String> arrayList){
-        String noAdd = input.substring(input.indexOf(' '));
-        String intPos = noAdd.substring(0, input.indexOf(' '));
-        String item = noAdd.substring(input.indexOf(' '));
-        int position = Integer.parseInt(intPos.trim());
-        if(position <= arrayList.size())
-            arrayList.add(position, item);
+    public static void atIndexAddToList(String input, String strIndex){
+        int index = Integer.parseInt(strIndex);
+        if(index <= todoList.size())
+            todoList.add(index, input.trim());
         else System.out.println("Нельзя поместить элемент на эту позицию");
-
-        return arrayList;
     }
-    public static void list(ArrayList<String> arrayList) {
+
+    public static void editList (String input, String strIndex){
+        int index = Integer.parseInt(strIndex);
+        if(index <= todoList.size() - 1) {
+            todoList.remove(index);
+            todoList.add(index, input);
+        }
+        else System.out.println("Нет такого элемента");
+    }
+
+    public static void printList() {
         System.out.println("Список дела: ");
-        for(int i = 0; i < arrayList.size(); i++){
-            System.out.println(i + " - " + arrayList.get(i));
+        for (int i = 0; i < todoList.size(); i++) {
+            System.out.println(i + " - " + todoList.get(i));
         }
     }
-
+    public static void removeFromList(String strIndex){
+        int index = Integer.parseInt(strIndex.trim());
+        if(index <= todoList.size() - 1)
+            todoList.remove(index);
+        else System.out.println("Нет такого элемента");
+    }
 }
