@@ -3,7 +3,7 @@ import java.util.*;
 public class CoolNumbers {
     public static void main(String[] args) {
         ArrayList<String> numbersArrayList = new ArrayList<>();
-        String findNum  = "Н666ВУ199";
+        String findNum  = "Н777УУ199";
 
         long startTime = System.nanoTime();
         numbersArrayList = generateCoolNumbers();
@@ -12,32 +12,40 @@ public class CoolNumbers {
         System.out.println("Количество элементов в массиве: " + numbersArrayList.size());
         //printArray(numbersArrayList);
 
-        startTime = System.nanoTime();
-        boolean isFind = findInArrayList(numbersArrayList, findNum);
-        finishTime = System.nanoTime();
-        if (isFind) System.out.println("Поиск перебором: номер найден, поиск занял " + (finishTime - startTime) + " нс");
-        else System.out.println("Поиск перебором: номер не найден, поиск занял " + (finishTime - startTime) + " нс");
+        //Поиск перебором
+        findInArrayList(numbersArrayList, findNum);
+        //Бинарный поиск
+        binarySearchInArray(numbersArrayList, findNum);
+        //Поиск в хеш-сет
+        HashSet<String> numbersHashSet = new HashSet<>(numbersArrayList);
+        findInHashSet(numbersHashSet, findNum);
+        //Поиск в три-сет
+        TreeSet<String> numbersTreeSet = new TreeSet<>(numbersArrayList);
+        findInTreeSet(numbersTreeSet, findNum);
 
-        Collections.sort(numbersArrayList);
-        startTime = System.nanoTime();
-        int bin = Collections.binarySearch(numbersArrayList, findNum);
-        finishTime = System.nanoTime();
+    }
+
+    private static void binarySearchInArray(ArrayList<String> numbersList, String findNumber){
+        Collections.sort(numbersList);
+        long startTime = System.nanoTime();
+        int bin = Collections.binarySearch(numbersList, findNumber);
+        long finishTime = System.nanoTime();
         if (bin >= 0) System.out.println("Бинарный поиск: номер найден, поиск занял " + (finishTime - startTime) + " нс");
         else System.out.println("Бинарный поиск: номер не найден, поиск занял " + (finishTime - startTime) + " нс");
+    }
 
-
-        HashSet<String> numbersHashSet = new HashSet<>(numbersArrayList);
-        startTime = System.nanoTime();
-        isFind = numbersHashSet.contains(findNum);
-        finishTime = System.nanoTime();
+    private static void findInHashSet(HashSet<String> hashSet, String findNumber){
+        long startTime = System.nanoTime();
+        boolean isFind = hashSet.contains(findNumber);
+        long finishTime = System.nanoTime();
         if (isFind) System.out.println("Поиск в HashSet: номер найден, поиск занял " + (finishTime - startTime) + " нс");
         else System.out.println("Поиск в HashSet: номер не найден, поиск занял " + (finishTime - startTime) + " нс");
+    }
 
-
-        TreeSet<String> numbersTreeSet = new TreeSet<>(numbersArrayList);
-        startTime = System.nanoTime();
-        isFind = numbersTreeSet.contains(findNum);
-        finishTime = System.nanoTime();
+    private static void findInTreeSet(TreeSet<String> treeSet, String findNumber){
+        long startTime = System.nanoTime();
+        boolean isFind = treeSet.contains(findNumber);
+        long finishTime = System.nanoTime();
         if (isFind) System.out.println("Поиск в TreeSet: номер найден, поиск занял " + (finishTime - startTime) + " нс");
         else System.out.println("Поиск в TreeSet: номер не найден, поиск занял " + (finishTime - startTime) + " нс");
     }
@@ -97,10 +105,14 @@ public class CoolNumbers {
         }
     }
 
-    private static boolean findInArrayList(ArrayList<String> numbersList, String findNumber) {
+    private static void findInArrayList(ArrayList<String> numbersList, String findNumber) {
+        boolean flag = false;
+        long startTime = System.nanoTime();
         for (String item : numbersList) {
-            if (item.equals(findNumber)) return true;
+            if (item.equals(findNumber)) flag = true;
         }
-        return false;
+        long finishTime = System.nanoTime();
+        if (flag) System.out.println("Поиск перебором: номер найден, поиск занял " + (finishTime - startTime) + " нс");
+        else System.out.println("Поиск перебором: номер не найден, поиск занял " + (finishTime - startTime) + " нс");
     }
 }
