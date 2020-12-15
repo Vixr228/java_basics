@@ -1,6 +1,6 @@
 public class BankAccount {
 
-  public double moneyAmount;
+  protected double moneyAmount;
 
   public BankAccount(){
     moneyAmount = 0;

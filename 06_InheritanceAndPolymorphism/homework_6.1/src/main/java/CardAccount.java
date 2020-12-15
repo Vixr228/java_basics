@@ -1,6 +1,6 @@
 public class CardAccount extends BankAccount {
 
-    public double commissionPercent = 0.01;
+    private double commissionPercent = 0.01;
 
     @Override
     public void take(double amountToTake) {
