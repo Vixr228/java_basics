@@ -11,14 +11,14 @@ public class DepositAccount extends BankAccount {
     public void put(double amountToPut) {
         lastIncome = Calendar.getInstance();
         if(amountToPut < 0) return;
-        else moneyAmount += amountToPut;
+        else setMoneyAmount(getMoneyAmount() + amountToPut);
     }
 
     @Override
     public void take(double amountToTake) {
         Calendar currTime = Calendar.getInstance();
         lastIncome.roll(Calendar.MONTH, 1);
-        if(amountToTake <= moneyAmount && currTime.getTime().after(lastIncome.getTime())) moneyAmount -= amountToTake;
+        if(amountToTake <= getMoneyAmount() && currTime.getTime().after(lastIncome.getTime())) setMoneyAmount(getMoneyAmount() - amountToTake);
         else return;
     }
 }

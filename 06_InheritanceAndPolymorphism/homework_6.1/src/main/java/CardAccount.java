@@ -4,7 +4,7 @@ public class CardAccount extends BankAccount {
 
     @Override
     public void take(double amountToTake) {
-        if(amountToTake > moneyAmount) return;
-        else moneyAmount -= amountToTake + (amountToTake * commissionPercent);
+        if(amountToTake > getMoneyAmount()) return;
+        else setMoneyAmount(getMoneyAmount() - (amountToTake + amountToTake * commissionPercent));
     }
 }
