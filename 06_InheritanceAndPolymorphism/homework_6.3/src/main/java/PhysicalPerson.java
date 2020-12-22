@@ -1,7 +1,11 @@
 public class PhysicalPerson extends Client {
 
     public PhysicalPerson(){
-        moneyAmount = 0;
+        setMoneyAmount(0);
     }
 
+    @Override
+    public void info() {
+
+    }
 }

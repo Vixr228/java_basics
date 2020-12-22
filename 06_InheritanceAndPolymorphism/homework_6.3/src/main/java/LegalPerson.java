@@ -4,7 +4,12 @@ public class LegalPerson extends Client {
 
     @Override
     public void take(double amountToTake) {
-        if(amountToTake > moneyAmount) return;
-        else moneyAmount -= amountToTake + (amountToTake * commissionPercent);
+        if(amountToTake > getMoneyAmount()) return;
+        else setMoneyAmount(getMoneyAmount() - (amountToTake + (amountToTake * commissionPercent)));
+    }
+
+    @Override
+    public void info() {
+
     }
 }
