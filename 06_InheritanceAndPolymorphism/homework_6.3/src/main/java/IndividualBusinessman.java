@@ -16,7 +16,11 @@ public class IndividualBusinessman extends Client {
 
     @Override
     public void info() {
-
+        System.out.println("Информация о счете:");
+        System.out.println("Текущий баланс: " + super.getAmount());
+        System.out.println("Условия снятия: комиссия 1%.");
+        System.out.println("Условия пополнения: \nКомиссия 1%, если сумма пополнения меньше 1000 рублей.\n" +
+                "Комиссия 0.5%, если сумма пополнения больше или равна 1000 рублей.");
     }
 
 }

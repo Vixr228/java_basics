@@ -10,6 +10,9 @@ public class LegalPerson extends Client {
 
     @Override
     public void info() {
-
+        System.out.println("Информация о счете:");
+        System.out.println("Текущий баланс: " + super.getAmount());
+        System.out.println("Условия снятия: комиссия 1%.");
+        System.out.println("Условия пополнения: без комиссии.");
     }
 }
