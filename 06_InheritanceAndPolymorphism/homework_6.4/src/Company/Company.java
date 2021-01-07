@@ -5,8 +5,8 @@ import java.util.*;
 public class Company{
 
     private long income = 5000000 + (long)(Math.random() * 12000000);
-    public int fixSalary = 50000;
-    ArrayList<Employee> employeeList;
+    private int fixSalary = 50000;
+    private ArrayList<Employee> employeeList;
 
     public Company(){
         employeeList = new ArrayList<>();
