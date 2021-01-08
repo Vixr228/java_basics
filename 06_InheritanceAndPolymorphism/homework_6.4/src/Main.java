@@ -2,6 +2,7 @@ import Company.Company;
 import Company.*;
 
 import java.lang.reflect.Array;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Main {
@@ -20,12 +21,12 @@ public class Main {
         ArrayList<Employee> topSalary = new ArrayList<>();
         topSalary = myCompany.getTopSalaryStaff(15);
         System.out.println("Top 15 salaries of our company: ");
-        printArray(topSalary);
+        printSalary(topSalary);
 
         ArrayList<Employee> lowestSalary = new ArrayList<>();
         lowestSalary = myCompany.getLowesSalaryStaff(30);
         System.out.println("The 30 lowest salaries of our company: ");
-        printArray(lowestSalary);
+        printSalary(lowestSalary);
 
 
         System.out.println("Let's fire somebody...");
@@ -40,17 +41,18 @@ public class Main {
 
         topSalary = myCompany.getTopSalaryStaff(15);
         System.out.println("Top 15 salaries of our company after fire: ");
-        printArray(topSalary);
+        printSalary(topSalary);
         lowestSalary = myCompany.getLowesSalaryStaff(30);
         System.out.println("The 30 lowest salaries of our company after fire: ");
-        printArray(lowestSalary);
+        printSalary(lowestSalary);
 
     }
 
-    public static void printArray(ArrayList<Employee> salary){
-        int count = 1;
-        for(Employee emp : salary){
-            System.out.println(count++ + " " + emp.getMonthSalary());
+    private static void printSalary(ArrayList<Employee> employees) {
+        for (Employee e : employees) {
+            System.out.println(new DecimalFormat("###,###").format(e.getMonthSalary()) + " руб.");
         }
+        System.out.println("------------------");
     }
+
 }

@@ -18,7 +18,8 @@ public class DepositAccount extends BankAccount {
     public void take(double amountToTake) {
         Calendar currTime = Calendar.getInstance();
         lastIncome.roll(Calendar.MONTH, 1);
-        if(amountToTake <= getMoneyAmount() && currTime.getTime().after(lastIncome.getTime())) setMoneyAmount(getMoneyAmount() - amountToTake);
+        if(amountToTake <= getMoneyAmount() && currTime.getTime().after(lastIncome.getTime()))
+            setMoneyAmount(getMoneyAmount() - amountToTake);
         else return;
     }
 }
