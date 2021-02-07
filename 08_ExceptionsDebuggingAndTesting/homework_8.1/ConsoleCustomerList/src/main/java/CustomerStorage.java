@@ -15,6 +15,9 @@ public class CustomerStorage {
         final int INDEX_PHONE = 3;
 
         String[] components = data.split("\\s+");
+        if(components.length != 4) throw new IllegalArgumentException("Wrong count components");
+        if (!components[INDEX_PHONE].matches(".*((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}.*")) throw new IllegalArgumentException("Wrong phone number");
+        if (!components[INDEX_EMAIL].matches("[^@]+@[^\\.\\,]+\\..+")) throw new IllegalArgumentException("Wrong email");
         String name = components[INDEX_NAME] + " " + components[INDEX_SURNAME];
         storage.put(name, new Customer(name, components[INDEX_PHONE], components[INDEX_EMAIL]));
     }
