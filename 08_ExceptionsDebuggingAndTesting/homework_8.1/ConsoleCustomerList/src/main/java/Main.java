@@ -14,9 +14,9 @@ public class Main {
         CustomerStorage executor = new CustomerStorage();
 
         while (true) {
-            String command = scanner.nextLine();
-            String[] tokens = command.split("\\s+", 2);
             try {
+                String command = scanner.nextLine();
+                String[] tokens = command.split("\\s+", 2);
                 if (tokens[0].equals("add")) {
                     executor.addCustomer(tokens[1]);
                 } else if (tokens[0].equals("list")) {
@@ -30,7 +30,7 @@ public class Main {
                 } else {
                     System.out.println(COMMAND_ERROR);
                 }
-            } catch (Exception e){
+            } catch(Exception e){
                 e.printStackTrace();
             }
 
