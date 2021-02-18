@@ -12,6 +12,7 @@ import java.util.Scanner;
 
 public class Main {
     private static final String DATA_FILE = "src/main/resources/map.json";
+
     private static Scanner scanner;
 
     private static StationIndex stationIndex;
