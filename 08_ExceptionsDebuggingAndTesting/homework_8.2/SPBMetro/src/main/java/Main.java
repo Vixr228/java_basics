@@ -1,5 +1,7 @@
 import core.Line;
 import core.Station;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -14,18 +16,26 @@ public class Main {
     private static final String DATA_FILE = "src/main/resources/map.json";
 
     private static Scanner scanner;
-
+    public static Logger logger;
     private static StationIndex stationIndex;
 
     public static void main(String[] args) {
         RouteCalculator calculator = getRouteCalculator();
+
+        logger = LogManager.getRootLogger();
+
+        int a[] = {1, 2, 3, 4, 5};
+        try{
+            System.out.println(a[5]);
+        } catch (Exception ex){
+            logger.error(ex);
+        }
 
         System.out.println("Программа расчёта маршрутов метрополитена Санкт-Петербурга\n");
         scanner = new Scanner(System.in);
         for (; ; ) {
             Station from = takeStation("Введите станцию отправления:");
             Station to = takeStation("Введите станцию назначения:");
-
             List<Station> route = calculator.getShortestRoute(from, to);
             System.out.println("Маршрут:");
             printRoute(route);
@@ -62,8 +72,10 @@ public class Main {
             String line = scanner.nextLine().trim();
             Station station = stationIndex.getStation(line);
             if (station != null) {
+                logger.info("Станция назначения: " + station);
                 return station;
             }
+            logger.warn("Станция не найдена: " + line);
             System.out.println("Станция не найдена :(");
         }
     }
@@ -83,6 +95,7 @@ public class Main {
             JSONArray connectionsArray = (JSONArray) jsonData.get("connections");
             parseConnections(connectionsArray);
         } catch (Exception ex) {
+            logger.error(ex);
             ex.printStackTrace();
         }
     }
@@ -141,6 +154,7 @@ public class Main {
             List<String> lines = Files.readAllLines(Paths.get(DATA_FILE));
             lines.forEach(line -> builder.append(line));
         } catch (Exception ex) {
+            logger.error(ex.getMessage());
             ex.printStackTrace();
         }
         return builder.toString();
