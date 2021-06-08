@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/12_SQLAndHibernate/homework_12.2/hibernate_hw/hibernate_hw.iml" filepath="$PROJECT_DIR$/12_SQLAndHibernate/homework_12.2/hibernate_hw/hibernate_hw.iml" />
+      <module fileurl="file://$PROJECT_DIR$/09_FilesAndNetwork/homework_9.4/homework_9.4.iml" filepath="$PROJECT_DIR$/09_FilesAndNetwork/homework_9.4/homework_9.4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/java_basics.iml" filepath="$PROJECT_DIR$/.idea/java_basics.iml" />
+      <module fileurl="file://$PROJECT_DIR$/12_SQLAndHibernate/homework_12.1/sql_homework/sql_homework.iml" filepath="$PROJECT_DIR$/12_SQLAndHibernate/homework_12.1/sql_homework/sql_homework.iml" />
+    </modules>
+  </component>
+</project>
