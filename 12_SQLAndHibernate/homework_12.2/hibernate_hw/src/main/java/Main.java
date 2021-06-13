@@ -5,6 +5,8 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -17,12 +19,19 @@ public class Main {
 
         Course course = session.get(Course.class, 1);
         System.out.println("Name: " + course.getName());
-        System.out.println("Student amount: " + course.getStudentsCount());
+        System.out.println("Student amount: " + course.getStudents().size());
+        System.out.println("Teacher: " + course.getTeacher().getName());
+        List<Student> studentList = course.getStudents();
+        studentList.forEach(student -> System.out.println(student.getName()));
+        System.out.println("----");
+        course.getSubscriptions().forEach(System.out::println);
+
 
         Student student = session.get(Student.class, 1);
         System.out.println("Name: " + student.getName());
         System.out.println("Age: " + student.getAge());
         System.out.println("Registration date: " + student.getRegistrationDate());
+        student.getSubscriptions().forEach(System.out::println);
 
         sessionFactory.close();
 
