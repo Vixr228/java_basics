@@ -21,11 +21,12 @@ public class Course {
 
     @Column(name = "students_count")
     private int studentsCount;
+
     private int price;
     @Column(name = "price_per_hour")
     private float pricePerHour;
 
-    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, orphanRemoval = false)
+    @OneToMany(mappedBy = "course", cascade = CascadeType.ALL)
     private List<Subscription> subscriptions;
 
 
@@ -34,6 +35,20 @@ public class Course {
         joinColumns = {@JoinColumn(name="course_id")},
         inverseJoinColumns = {@JoinColumn(name="student_id")})
     private List<Student> students;
+
+
+    public List<PurchaseList> getPurchaseList(){
+        List<PurchaseList> purchaseList = new ArrayList<>();
+
+        for(Subscription sub : subscriptions){
+            Student student = sub.getStudent();
+            purchaseList.add(JDBCConnector.session.get(PurchaseList.class, new PurchaseKey(student.getName(), this.getName())));
+        }
+
+        return purchaseList;
+    }
+
+
 
     public int getId() {
         return id;

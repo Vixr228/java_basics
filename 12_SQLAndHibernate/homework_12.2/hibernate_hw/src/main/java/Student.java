@@ -21,6 +21,17 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<Subscription> subscriptions;
 
+    public List<PurchaseList> getPurchaseList(){
+        List<PurchaseList> purchaseList = new ArrayList<>();
+
+        for(Subscription sub : subscriptions){
+            Course course = sub.getCourse();
+            purchaseList.add(JDBCConnector.session.get(PurchaseList.class, new PurchaseKey(this.getName(), course.getName())));
+        }
+
+        return purchaseList;
+    }
+
     public List<Subscription> getSubscriptions() {
         return subscriptions;
     }

@@ -1,11 +1,9 @@
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 @Table(name = "LinkedPurchaseList")
+//@IdClass(LinkedPurchaseKey.class)
 public class LinkedPurchaseList {
 
     @EmbeddedId

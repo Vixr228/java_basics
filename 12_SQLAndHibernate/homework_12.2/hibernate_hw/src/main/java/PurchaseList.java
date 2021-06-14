@@ -1,19 +1,17 @@
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.xml.crypto.Data;
 import java.util.Date;
 
 @Entity
 @Table(name = "PurchaseList")
+//@IdClass(PurchaseKey.class)
 public class PurchaseList {
 
     @EmbeddedId
     private PurchaseKey id;
 
 
-    @Column(name = "student_name", insertable = false, updatable = false)
+   @Column(name = "student_name", insertable = false, updatable = false)
     private String studentName;
     @Column(name = "course_name", insertable = false, updatable = false)
     private String courseName;
@@ -39,6 +37,17 @@ public class PurchaseList {
 
     public int getPrice() {
         return price;
+    }
+
+    @Override
+    public String toString() {
+        return "PurchaseList{" +
+                "id=" + id +
+                ", studentName='" + studentName + '\'' +
+                ", courseName='" + courseName + '\'' +
+                ", price=" + price +
+                ", subscriptionDate=" + subscriptionDate +
+                '}';
     }
 
     public void setPrice(int price) {
